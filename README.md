@@ -1,4 +1,4 @@
-http://isoftage.com/
+https://phanducduy6.github.io/casino/
 
 # casino
 1. Slot Kho bau
