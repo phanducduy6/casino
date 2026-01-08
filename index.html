@@ -72,3 +72,21 @@
 
 </html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+/* Xóa khoảng trắng mặc định của trình duyệt */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ẩn thanh cuộn nếu thừa */
+}
+
+/* Chỉnh khung bao quanh game (thường là class .container, .wrap hoặc id #app) */
+.main-content, #game-container { 
+    /* Thay tên class/id cho đúng với code của bạn */
+    width: 100vw;  /* Full chiều ngang */
+    height: 100vh; /* Full chiều dọc */
+    background-size: cover; /* Kéo dãn ảnh nền cho vừa khít màn hình */
+    background-position: center; /* Căn giữa ảnh */
+    background-repeat: no-repeat;
+}
