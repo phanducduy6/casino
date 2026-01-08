@@ -16,34 +16,52 @@
     <meta id="metaKeywords" name="keywords" content="" />
     <meta id="metaDescription" name="description" content="CGame" />
 
-    <style>
-        /* ĐÃ SỬA: Thêm html, body height 100% để khung bao ngoài luôn full */
+      <style>
         html, body {
             width: 100%;
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Ẩn thanh cuộn */
+            overflow: hidden;
             background: #000;
+            touch-action: none; /* Chặn zoom/kéo trang */
         }
 
-        body,
-        canvas,
-        div {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            -khtml-user-select: none;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        }
-        
-        /* ĐÃ SỬA: Ép canvas bung full màn hình */
+        /* Cấu hình mặc định cho canvas */
         #gameCanvas {
-            width: 100%;
-            height: 100%;
             display: block;
+            position: absolute;
+        }
+
+        /* TRƯỜNG HỢP 1: Màn hình đang Dọc (Portrait) -> Cần xoay ngang game */
+        @media screen and (orientation: portrait) {
+            #gameCanvas {
+                /* Đặt tâm xoay vào giữa màn hình */
+                top: 50%;
+                left: 50%;
+                
+                /* Đảo chiều: Rộng canvas = Cao màn hình, Cao canvas = Rộng màn hình */
+                width: 100vh !important; 
+                height: 100vw !important;
+                
+                /* Xoay 90 độ */
+                transform: translate(-50%, -50%) rotate(90deg);
+                -webkit-transform: translate(-50%, -50%) rotate(90deg);
+            }
+        }
+
+        /* TRƯỜNG HỢP 2: Màn hình đang Ngang (Landscape) -> Full bình thường */
+        @media screen and (orientation: landscape) {
+            #gameCanvas {
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+                transform: none;
+            }
         }
     </style>
+
 </head>
 
 <body>
